@@ -6,7 +6,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
-import { ThemeProvider } from "@/components/layout/theme-provider";
 import { FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa"; // <-- Added icons
 import Link from "next/link";
 
@@ -24,6 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <title>Talent Trek | Learn Web Development Online</title>
+<meta name="description" content="Join Talent Trek – an edtech startup offering affordable online courses in coding, web development, and future-ready skills. Start learning today." />
+<meta property="og:title" content="Talent Trek | Learn Web Development Online" />
+<meta property="og:description" content="Talent Trek is your go-to e-learning platform for mastering coding and tech skills with real-world projects and expert mentors." />
+<meta property="og:image" content="https://yourcdn.com/og-image.jpg" />
+
     <body className={cn("min-h-screen", inter.className)}>
 
 
