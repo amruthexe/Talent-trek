@@ -22,25 +22,25 @@ export default function WebDevPromo() {
         {/* Text Section */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:w-1/2 space-y-8">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
-            Generative AI Foundations
+            Full Stack Web Development
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-700">
-            Apply new AI skills the very next day!
+            Build real-world websites and apps from Day 1!
           </h2>
 
           <div className="flex flex-col gap-4">
             <p className="text-lg text-gray-700">
-              Joint Completion Certification from upGrad and Microsoft
+              Learn HTML, CSS, JavaScript, React, Node.js & more.
             </p>
             <p className="text-lg text-gray-700">
-              Paid access to AI tools worth the course fee
+              100% practical, beginner-friendly.
             </p>
             <div className="flex justify-center lg:justify-start items-center gap-2 text-xl">
               <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
-              <span className="text-gray-600">4.9/5</span>
+              <span className="text-gray-600">4.9/5 Rated  by 5,000+ learners</span>
             </div>
             <p className="text-md text-gray-700">
-              Learn to use 15+ AI tools like a pro - MS Copilot, Azure AI, and more.
+              Certification of Completion + Placement Assistance included.
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function WebDevPromo() {
               asChild
               className="w-5/6 sm:w-1/3 font-bold group/arrow bg-black hover:bg-gray-800 text-white rounded-full px-24 py-3 transition duration-300"
             >
-              <Link href="https://wa.me/919848814614?text=Hi%2C%20I'm%20interested%20in%20learning%20more%20about%20Generative%20AI.">
+              <Link href="https://wa.me/919848814614?text=Hi%2C%20I'm%20interested%20in%20learning%20about%20your%20Web%20Development%20course.">
                 Start Learning at ₹499
                 <Play className="size-4 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
               </Link>
@@ -74,7 +74,7 @@ export default function WebDevPromo() {
           >
             <img
               src="/html.jpeg"
-              alt="Demo Video"
+              alt="Web Development Course Demo"
               className="w-full h-full object-cover"
             />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-3 rounded-full">
