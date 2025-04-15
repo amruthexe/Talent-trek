@@ -7,7 +7,7 @@ const collaborations = [
   },
   {
     name: "AWS Partner",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+    logo: "https://img.icons8.com/color/512/amazon-web-services.png",
   },
   {
     name: "AICTE",

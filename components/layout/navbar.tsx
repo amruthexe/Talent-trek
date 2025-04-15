@@ -54,9 +54,8 @@ interface ServiceProps {
 }
 
 const routeList: RouteProps[] = [
-  { href: "#about", label: "About " },
   { href: "/team", label: "Team" },
-  { href: "/about", label: "About Us" },
+  { href: "/about-us", label: "About us" },
   { href: "/carrer", label: "Carrers" },
   { href: "/industry", label: "Industries" },
 ];
@@ -66,11 +65,11 @@ const serviceList: ServiceProps[] = [
     title: "WEB DEVELOPMENT",
     href: "/web",
     icon: Code,
-    subServices: [
-      { title: "Java Full Stack", href: "/web/java", icon: Code },
-      { title: "Python Full Stack", href: "/web/python", icon: Code },
-      { title: "MERN Stack", href: "/web/mern", icon: Code },
-    ],
+    // subServices: [
+    //   { title: "Java Full Stack", href: "/web/java", icon: Code },
+    //   { title: "Python Full Stack", href: "/web/python", icon: Code },
+    //   { title: "MERN Stack", href: "/web/mern", icon: Code },
+    // ],
   },
   { title: "APP DEVELOPMENT", href: "/apps", icon: Smartphone },
   { title: "E-COMMERCE", href: "/ecom", icon: ShoppingCart },
@@ -167,7 +166,7 @@ export const Navbar = () => {
               Programs
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <div className="grid w-[600px] grid-cols-2 gap-2 p-4">
+              <div className="grid w-[250px] grid-cols-1 gap-2 p-4">
                 <ul className="flex flex-col gap-2">
                   {serviceList.map(({ title, href, icon: Icon, subServices }) => (
                     <div

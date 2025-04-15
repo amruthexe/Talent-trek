@@ -57,13 +57,14 @@ export default function Home() {
                 </Container>
                 <Programs/>
                 <VerticalsSection/>
+                <ExplorePrograms/>
                 <FeaturesSectionDemo/>
                 <CommunityStats/>
               
  
       <FeaturesSection />
   
-      <ExplorePrograms/>
+     
   
       <NewPricing/>
       <Collaborations/>
