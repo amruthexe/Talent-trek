@@ -26,7 +26,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: "https://github.com/nobruf/shadcn-landing-page.git",
-    title: "Triset Solutions India Private Limited",
+    title: "Talent trek",
   description: "talent trek",
     images: [
       {
