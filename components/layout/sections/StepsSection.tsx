@@ -1,7 +1,6 @@
-import { useState } from "react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
-import { icons } from "lucide-react"; // Using lucide-react for icons
 
 interface StepProps {
   number: string;
