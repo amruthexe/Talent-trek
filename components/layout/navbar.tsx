@@ -95,7 +95,8 @@ export const Navbar = () => {
       height={50}
       className="rounded-sm object-contain"
     />
-     <span className="hidden sm:block text-md pb-1 font-bold tracking-wide">Talent Trek</span>
+    <span className="text-md pb-1 font-bold tracking-wide">Talent Trek</span>
+
    
   </div>
 </Link>
