@@ -58,7 +58,7 @@ interface ServiceProps {
 const routeList: RouteProps[] = [
   { href: "/team", label: "Team" },
   { href: "/about-us", label: "About us" },
-  { href: "/carrer", label: "Carrers" },
+  { href: "/carrers", label: "Carrers" },
   { href: "/industry", label: "Industries" },
 ];
 
@@ -148,14 +148,14 @@ export const Navbar = () => {
               </Accordion>
 
               {/* ✅ Other Pages on Mobile */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col font-bold gap-2">
                 {routeList.map(({ href, label }) => (
                   <Button
                     key={href}
                     onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
-                    className="justify-start text-base"
+                    className="justify-start font-bold"
                   >
                     <Link href={href}>{label}</Link>
                   </Button>
@@ -173,7 +173,7 @@ export const Navbar = () => {
       <NavigationMenu className="hidden lg:block mx-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-card text-base">
+            <NavigationMenuTrigger className="bg-card font-semibold text-base">
               Programs
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -219,7 +219,7 @@ export const Navbar = () => {
           <NavigationMenuItem>
             {routeList.map(({ href, label }) => (
               <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2">
+                <Link href={href} className="font-semibold px-2">
                   {label}
                 </Link>
               </NavigationMenuLink>
