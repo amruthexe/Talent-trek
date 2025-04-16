@@ -7,9 +7,28 @@ import Link from 'next/link';
 
 export default function CyberSecurityPromo() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [form, setForm] = useState({ name: '', phone: '', email: '', domain: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleVideoClick = () => {
     setIsVideoOpen(true);
+    setShowForm(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    const res = await fetch('/api/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+    if (res.ok) {
+      setSubmitted(true);
+    }
+    setSubmitting(false);
   };
 
   return (
@@ -21,9 +40,7 @@ export default function CyberSecurityPromo() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 flex flex-col lg:flex-row gap-12 items-center">
         {/* Text Section */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:w-1/2 space-y-8">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
-            Cyber Security Course
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900">Cyber Security Course</h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-700">
             Learn to Protect, Detect, and Respond to Cyber Threats!
           </h2>
@@ -73,7 +90,7 @@ export default function CyberSecurityPromo() {
             className="cursor-pointer relative w-full aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden"
           >
             <img
-              src="/html.jpeg" // Replace with /cyber.jpeg if you have one
+              src="/html.jpeg"
               alt="Cyber Security Course Demo"
               className="w-full h-full object-cover"
             />
@@ -82,7 +99,6 @@ export default function CyberSecurityPromo() {
             </div>
           </div>
 
-          {/* Video Modal */}
           {isVideoOpen && (
             <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-70 flex justify-center items-center z-50 p-4">
               <div className="relative w-full max-w-3xl aspect-[16/9]">
@@ -91,7 +107,7 @@ export default function CyberSecurityPromo() {
                   controls
                   autoPlay
                 >
-                  <source src="/html.mp4" type="video/mp4" /> {/* Replace with cyber.mp4 if needed */}
+                  <source src="/html.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <button
@@ -103,6 +119,68 @@ export default function CyberSecurityPromo() {
               </div>
             </div>
           )}
+{showForm && (
+  <div className="mt-10 w-full bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-3xl shadow-xl p-8 transition-all duration-300">
+    <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6 tracking-tight">
+      🚀 Ready to take the next step?
+    </h3>
+    <p className="text-center text-gray-500 dark:text-gray-400 mb-6 text-sm sm:text-base">
+      Tell us a bit about yourself and we'll reach out with everything you need to know.
+    </p>
+
+    {submitted ? (
+      <p className="text-green-600 text-center font-medium text-lg">✅ Submitted! We'll reach you soon.</p>
+    ) : (
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full bg-white dark:bg-neutral-800 text-gray-800 dark:text-white placeholder-gray-400 border border-gray-300 dark:border-neutral-600 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
+            required
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            className="w-full bg-white dark:bg-neutral-800 text-gray-800 dark:text-white placeholder-gray-400 border border-gray-300 dark:border-neutral-600 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
+            required
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          />
+        </div>
+
+        <input
+          type="email"
+          placeholder="Email Address"
+          className="w-full bg-white dark:bg-neutral-800 text-gray-800 dark:text-white placeholder-gray-400 border border-gray-300 dark:border-neutral-600 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
+          required
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+
+        <input
+          type="text"
+          placeholder="Interested Domain (e.g., Web Dev, AI, UI/UX)"
+          className="w-full bg-white dark:bg-neutral-800 text-gray-800 dark:text-white placeholder-gray-400 border border-gray-300 dark:border-neutral-600 p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
+          required
+          value={form.domain}
+          onChange={(e) => setForm({ ...form, domain: e.target.value })}
+        />
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full bg-black text-white dark:bg-white dark:text-black py-3 rounded-2xl text-lg font-semibold hover:opacity-90 transition-all duration-200"
+        >
+          {submitting ? "Submitting..." : "✨ Submit & Get Details"}
+        </button>
+      </form>
+    )}
+  </div>
+)}
+
         </div>
       </div>
     </main>
