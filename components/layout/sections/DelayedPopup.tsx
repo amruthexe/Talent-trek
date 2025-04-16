@@ -4,7 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export const DelayedPopup = () => {
   const [show, setShow] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", email: "" });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    domain: "",
+  });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -14,7 +19,7 @@ export const DelayedPopup = () => {
       const timer = setTimeout(() => {
         setShow(true);
         localStorage.setItem("seenTalentTrekPopup", "true");
-      }, 30000);
+      }, 30000); // 30 seconds
       return () => clearTimeout(timer);
     }
   }, []);
@@ -49,7 +54,6 @@ export const DelayedPopup = () => {
             transition={{ type: "spring", duration: 0.6 }}
             className="relative bg-white dark:bg-black text-black dark:text-white w-full max-w-md rounded-2xl p-6 pt-10 shadow-2xl translate-y-[-4vh] sm:translate-y-0"
           >
-            {/* X Button fixed above text even on mobile */}
             <button
               className="absolute top-2 right-3 text-2xl font-bold hover:text-red-500 z-10"
               onClick={() => setShow(false)}
@@ -94,6 +98,14 @@ export const DelayedPopup = () => {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+                <input
+                  type="text"
+                  placeholder="Interested Domain (e.g., Web Dev, AI, UI/UX)"
+                  className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded bg-transparent focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
+                  required
+                  value={form.domain}
+                  onChange={(e) => setForm({ ...form, domain: e.target.value })}
                 />
                 <motion.button
                   whileTap={{ scale: 0.98 }}

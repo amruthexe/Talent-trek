@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, phone, email } = body;
+    const { name, phone, email, domain } = body;
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -26,6 +26,7 @@ You've received a new enquiry:
 Name: ${name}
 Phone: ${phone}
 Email: ${email}
+Interested Domain: ${domain}
       `,
     };
 
