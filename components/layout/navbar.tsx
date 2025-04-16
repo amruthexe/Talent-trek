@@ -1,5 +1,5 @@
-// ✅ Full Responsive Navbar with Nested Submenus (Desktop + Mobile) with improved hover fix
 "use client";
+import Image from "next/image";
 import {
   ChevronsDown,
   Github,
@@ -12,6 +12,8 @@ import {
   ArrowRight,
   PhoneCall,
   Camera,
+  Cloud,
+  ShieldCheck,
 } from "lucide-react";
 import React from "react";
 import {
@@ -71,11 +73,10 @@ const serviceList: ServiceProps[] = [
     //   { title: "MERN Stack", href: "/web/mern", icon: Code },
     // ],
   },
-  { title: "APP DEVELOPMENT", href: "/apps", icon: Smartphone },
-  { title: "E-COMMERCE", href: "/ecom", icon: ShoppingCart },
-  { title: "DIGITAL MARKETING", href: "/digital", icon: BarChart },
-  { title: "DATA ENTRY", href: "/data", icon: Database },
-  { title: "PHOTOGRAMMETRY", href: "/photo", icon: Camera },
+  { title: "APP DEVELOPMENT", href: "/app-dev", icon: Smartphone },
+  { title: "CLOUD COMPUTING", href: "/cloud-comp", icon: Cloud },
+  { title: "CYBER SECURITY", href: "/cyber-security", icon: ShieldCheck },
+ 
 ];
 
 export const Navbar = () => {
@@ -86,10 +87,19 @@ export const Navbar = () => {
     <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
       {/* Logo */}
       <Link href="/" className="font-bold text-lg flex items-center">
-      <div className="flex items-center space-x-4">
-        <span className="text-black  font-bold">TALENT TREK</span>
-    </div>
-      </Link>
+  <div className="flex items-center space-x-2">
+    <Image
+      src="/logo1.png" 
+      alt="Talent Trek Logo"
+      width={50} 
+      height={50}
+      className="rounded-sm object-contain"
+    />
+     <span className="hidden sm:block text-md pb-1 font-bold tracking-wide">Talent Trek</span>
+   
+  </div>
+</Link>
+
 
       {/* ✅ Mobile Navbar (Hamburger Menu) */}
       <div className="flex items-center lg:hidden">
@@ -106,7 +116,7 @@ export const Navbar = () => {
               <SheetHeader className="mb-4 ml-4">
                 <SheetTitle className="flex items-center">
                   <Link href="/" className="flex items-center">
-                    <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
+                 
                     Talent Trek
                   </Link>
                 </SheetTitle>
@@ -116,7 +126,7 @@ export const Navbar = () => {
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="services">
                   <AccordionTrigger className="px-4 py-2 no-underline hover:no-underline text-lg hover:text-muted-foreground font-normal">
-                    Services
+                    Programs
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-2">
                     {serviceList.map(({ title, href, icon: Icon }) => (
