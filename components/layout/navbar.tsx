@@ -97,7 +97,11 @@ export const Navbar = () => {
       height={50}
       className="rounded-sm object-contain"
     />
-    <span className="text-md pb-1 font-bold tracking-wide">Talent Trek</span>
+   <span className="text-lg  pb-1 font-bold tracking-wide text-black">
+  Talent{" "}
+  <span className="font-bold text-white outlined-text ">Trek</span>
+</span>
+
 
    
   </div>

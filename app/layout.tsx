@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa"; // <-- Added icons
 import Link from "next/link";
+import { DelayedPopup } from "@/components/layout/sections/DelayedPopup";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,7 +38,7 @@ export default function RootLayout({
     <Navbar />
     <div className="absolute inset-0 z-100 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] [background-size:32px_32px]" /> 
     </div>
-        
+    <DelayedPopup />
          
 
 
