@@ -49,37 +49,35 @@ const featureList: FeaturesProps[] = [
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="container py-18 sm:py-24">
-      <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        Why Choose Our EdTech Platform
-      </h2>
+    <section id="features" className="container py-16 sm:py-24">
+      <div className="w-full text-center px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+          Why Choose Our EdTech Platform
+        </h2>
 
-      <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-        We’re redefining learning by combining expert instruction, interactive tools, and real-world outcomes to empower learners for the careers of tomorrow.
-      </h3>
+        <h3 className="text-base sm:text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+          We’re redefining learning by combining expert instruction, interactive tools, and real-world outcomes to empower learners for the careers of tomorrow.
+        </h3>
+      </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {featureList.map(({ icon, title, description }) => (
-          <div key={title}>
-            <Card className="h-full bg-background border-0 shadow-none">
-              <CardHeader className="flex justify-center items-center">
-                <div className="bg-primary/20 p-2 rounded-full ring-8 ring-primary/10 mb-4">
-                  <Icon
-                    name={icon as keyof typeof icons}
-                    size={24}
-                    color="hsl(var(--primary))"
-                    className="text-primary"
-                  />
-                </div>
-
-                <CardTitle>{title}</CardTitle>
-              </CardHeader>
-
-              <CardContent className="text-muted-foreground text-center">
-                {description}
-              </CardContent>
-            </Card>
-          </div>
+          <Card key={title} className="h-full bg-background border-0 shadow-none">
+            <CardHeader className="flex flex-col justify-center items-center">
+              <div className="bg-primary/20 p-3 rounded-full ring-8 ring-primary/10 mb-4">
+                <Icon
+                  name={icon as keyof typeof icons}
+                  size={28}
+                  color="hsl(var(--primary))"
+                  className="text-primary"
+                />
+              </div>
+              <CardTitle className="text-center">{title}</CardTitle>
+            </CardHeader>
+            <CardContent className="text-muted-foreground text-center px-4">
+              {description}
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>

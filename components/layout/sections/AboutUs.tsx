@@ -18,7 +18,7 @@ const AboutUs = () => {
         transition={{ duration: 0.7 }}
         className="max-w-6xl mx-auto"
       >
-        <h1 className="text-4xl font-bold mb-6 text-center">About Us</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center ">About Us</h1>
         <p className="text-lg leading-8 mb-10 text-center">
           At <strong>Talent Trek E-Learning</strong>, we're committed to empowering individuals with the skills and knowledge they need to excel. Our team of expert instructors brings years of industry experience to the table, ensuring that our learners receive top-notch training in their chosen fields.
         </p>

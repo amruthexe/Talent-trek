@@ -34,7 +34,7 @@ const collaborations = [
 const Collaborations: React.FC = () => {
   return (
     <section className="bg-white text-black py-12 px-4">
-      <h2 className="text-3xl font-bold mb-8 text-center">Collaborations</h2>
+      <h2 className="text-3xl font-bold mb-16 text-center">Collaborations</h2>
       <div className="flex flex-wrap justify-center items-center gap-8 overflow-x-auto px-2">
         {collaborations.map((item, index) => (
           <div key={index} className="flex flex-col items-center text-center min-w-[120px]">
@@ -44,7 +44,7 @@ const Collaborations: React.FC = () => {
               className="w-28 h-16 object-contain mb-2"
               loading="lazy"
             />
-            <p className="text-sm font-medium whitespace-nowrap">{item.name}</p>
+            <p className="text-sm font-medium  mb-16 whitespace-nowrap">{item.name}</p>
           </div>
         ))}
       </div>

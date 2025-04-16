@@ -56,10 +56,12 @@ interface ServiceProps {
 }
 
 const routeList: RouteProps[] = [
+  { href: "/programs", label: "Programs" },
   { href: "/team", label: "Team" },
+ 
   { href: "/about-us", label: "About us" },
   { href: "/carrers", label: "Carrers" },
-  { href: "/industry", label: "Industries" },
+  
 ];
 
 const serviceList: ServiceProps[] = [
@@ -127,7 +129,7 @@ export const Navbar = () => {
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="services">
                   <AccordionTrigger className="px-4 py-2 no-underline hover:no-underline text-lg hover:text-muted-foreground font-normal">
-                    Programs
+                    Courses
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-2">
                     {serviceList.map(({ title, href, icon: Icon }) => (
@@ -174,7 +176,7 @@ export const Navbar = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="bg-card font-semibold text-base">
-              Programs
+              Courses
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="grid w-[250px] grid-cols-1 gap-2 p-4">

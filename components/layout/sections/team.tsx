@@ -78,7 +78,7 @@ export const TeamSection = () => {
   ];
 
   return (
-    <section id="team" className="container z-10 lg:w-[75%] py-16 sm:py-32">
+    <section id="team" className="container z-10 lg:w-[75%] ">
       <motion.div
         className="text-center mb-10"
         initial={{ opacity: 0, y: 30 }}
@@ -86,10 +86,9 @@ export const TeamSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-xl sm:text-2xl text-black tracking-wider font-semibold mb-2">
-          Team
-        </h2>
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+        
+       
+        <h2 className="text-3xl md:text-4xl font-bold  mt-8 mb-6">
           The Company Dream Team
         </h2>
 

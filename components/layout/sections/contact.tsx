@@ -69,7 +69,8 @@ export const ContactSection = () => {
                 <Phone />
                 <div className="font-bold">Call us</div>
               </div>
-              <div>+91-XXXXXXXXXX</div>
+              <div>+91-9606995922
+              </div>
             </div>
 
             <div>
@@ -77,7 +78,7 @@ export const ContactSection = () => {
                 <Mail />
                 <div className="font-bold">Mail Us</div>
               </div>
-              <div>support@talenttrekelearning.com</div>
+              <div>hr@talenttrekelearning.com</div>
             </div>
 
             <div>
