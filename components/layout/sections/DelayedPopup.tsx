@@ -9,8 +9,14 @@ export const DelayedPopup = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 30000);
-    return () => clearTimeout(timer);
+    const hasSeenPopup = localStorage.getItem("seenTalentTrekPopup");
+    if (!hasSeenPopup) {
+      const timer = setTimeout(() => {
+        setShow(true);
+        localStorage.setItem("seenTalentTrekPopup", "true");
+      }, 30000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,10 +47,11 @@ export const DelayedPopup = () => {
             animate={{ y: -10, opacity: 1 }}
             exit={{ y: 20, opacity: 0 }}
             transition={{ type: "spring", duration: 0.6 }}
-            className="bg-white dark:bg-black text-black dark:text-white w-full max-w-md rounded-2xl p-6 pt-2 relative shadow-2xl translate-y-[-4vh] sm:translate-y-0"
+            className="relative bg-white dark:bg-black text-black dark:text-white w-full max-w-md rounded-2xl p-6 pt-10 shadow-2xl translate-y-[-4vh] sm:translate-y-0"
           >
+            {/* X Button fixed above text even on mobile */}
             <button
-              className="absolute top-3 right-4 text-2xl font-bold hover:text-red-500 transition-all"
+              className="absolute top-2 right-3 text-2xl font-bold hover:text-red-500 z-10"
               onClick={() => setShow(false)}
               aria-label="Close"
             >
