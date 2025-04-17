@@ -59,7 +59,7 @@ export default function VerticalsSection() {
   return (
     <section className="container py-0">
       <div className="pb-6">
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 className="text-3xl text-center md:text-4xl font-bold">
           Choose your <span className="text-black">area of interest</span>
         </h2>
       </div>
@@ -81,6 +81,9 @@ export default function VerticalsSection() {
           return v.href ? (
             <Link href={v.href} key={i}>
               {CardContent}
+              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-gray-500 group-hover:text-black dark:group-hover:text-white">
+      Coming Soon
+    </span>
             </Link>
           ) : (
             <div key={i}>{CardContent}</div>

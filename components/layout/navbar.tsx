@@ -63,8 +63,9 @@ interface ServiceProps {
 
 const routeList: RouteProps[] = [
   { href: "/team", label: "Team" },
-  { href: "/about-us", label: "About us" },
+  
   { href: "/carrers", label: "Carrers" },
+  { href: "/about-us", label: "About us" },
 ];
 
 const serviceList: ServiceProps[] = [

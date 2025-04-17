@@ -2,51 +2,46 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, FileText, Clock, BadgeCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, BadgeCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 const programs = [
   {
-    title: "Generative AI Foundations Certificate Program",
-    subtitle: "Access to ChatGPT Plus, M365 Copilot and more",
-    duration: "2 Months",
-    image: "/images/genai-foundation.jpg",
-    slug: "genai-foundations",
-    syllabus: "/syllabus/genai-foundations.pdf",
-  },
-  {
-    title: "Generative AI Mastery Certificate for Data Analysis",
-    subtitle: "Access to ChatGPT Plus, M365 Copilot and more",
-    duration: "2 Months",
-    image: "/images/genai-data.jpg",
-    slug: "genai-data-analysis",
-    syllabus: "/syllabus/genai-data-analysis.pdf",
-  },
-  {
-    title: "Generative AI Mastery Certificate for Software Development",
-    subtitle: "Access to ChatGPT Plus, M365 Copilot and more",
-    duration: "2 Months",
+    title: "Web Development",
+    subtitle: "Frontend + Backend + Deployment",
+    duration: "2–3 Months",
     image: "/images/genai-software.jpg",
-    slug: "genai-software-development",
-    syllabus: "/syllabus/genai-software-development.pdf",
+    slug: "web",
   },
   {
-    title: "Generative AI Mastery Certificate for Managerial Excellence",
-    subtitle: "Access to ChatGPT Plus, M365 Copilot and more",
-    duration: "2 Months",
+    title: "App Development",
+    subtitle: "Flutter + React Native + Publishing",
+    duration: "2–3 Months",
     image: "/images/genai-manager.jpg",
-    slug: "genai-managerial-excellence",
-    syllabus: "/syllabus/genai-managerial-excellence.pdf",
+    slug: "app-dev",
   },
   {
-    title: "Generative AI Mastery Certificate for Content Creation",
-    subtitle: "Access to ChatGPT Plus, M365 Copilot and more",
-    duration: "2 Months",
+    title: "Cloud Computing",
+    subtitle: "AWS + DevOps + Real-time Projects",
+    duration: "3 Months",
     image: "/images/genai-content.webp",
-    slug: "genai-content-creation",
-    syllabus: "/syllabus/genai-content-creation.pdf",
+    slug: "cloud-comp",
+  },
+  {
+    title: "Cyber Security",
+    subtitle: "Ethical Hacking + Threat Detection + Tools",
+    duration: "3 Months",
+    image: "/images/genai-foundation.jpg",
+    slug: "cyber-security",
+  },
+  {
+    title: "Data Science",
+    subtitle: "Python + ML + AI + Projects",
+    duration: "3–4 Months",
+    image: "/images/genai-data.jpg",
+    slug: "data-science",
   },
 ];
 
@@ -70,8 +65,11 @@ export const Programs = () => {
     <section className="py-8 bg-background dark:bg-black">
       <div className="container relative">
         <h2 className="text-3xl md:text-4xl font-bold text-center">
-          Master Generative AI with <span className="text-black">Microsoft</span>
+          We are partnered with <span className="text-black text-5xl">AWS</span>
         </h2>
+        <p className="text-center text-muted-foreground mt-2 text-sm">
+          Explore our courses and skill up with global mentors
+        </p>
 
         {/* Desktop View with Arrows */}
         <div className="mt-10 hidden md:block relative">
@@ -94,7 +92,7 @@ export const Programs = () => {
                     className="rounded-md object-cover w-full h-[180px]"
                   />
                   <div className="mt-4">
-                    <h4 className="text-muted-foreground text-sm font-medium">Microsoft</h4>
+                    <h4 className="text-muted-foreground text-sm font-medium">Explore Our Courses</h4>
                     <h3 className="text-lg font-semibold mt-1 mb-2">
                       {program.title}
                     </h3>
@@ -102,22 +100,21 @@ export const Programs = () => {
                       {program.subtitle}
                     </p>
                     <div className="flex items-center justify-between text-sm text-muted-foreground mt-4">
-                      <span className="flex items-center gap-1"><BadgeCheck className="w-4 h-4" /> Certification</span>
-                      <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {program.duration}</span>
+                      <span className="flex items-center gap-1">
+                        <BadgeCheck className="w-4 h-4" /> Certification
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" /> {program.duration}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="mt-4 flex justify-between items-center gap-2">
-                    <Link href={`/related_course/${program.slug}`} className="w-full">
+                  <div className="mt-4 flex justify-center">
+                    <Link href={`/${program.slug}`} className="w-full">
                       <Button variant="outline" className="w-full">
                         View Program
                       </Button>
                     </Link>
-                    <a href={program.syllabus} download className="w-full">
-                      <Button className="w-full bg-black text-white hover:bg-blue-900 dark:bg-blue-900">
-                        <FileText className="w-4 h-4 mr-1" /> Syllabus
-                      </Button>
-                    </a>
                   </div>
                 </motion.div>
               ))}
@@ -151,7 +148,7 @@ export const Programs = () => {
           )}
         </div>
 
-        {/* Mobile View: vertical scroll without arrows */}
+        {/* Mobile View */}
         <div className="mt-10 flex flex-col gap-6 md:hidden">
           {programs.map((program) => (
             <motion.div
@@ -169,30 +166,29 @@ export const Programs = () => {
                 className="rounded-md object-cover w-full h-[180px]"
               />
               <div className="mt-4">
-                <h4 className="text-muted-foreground text-sm font-medium">Microsoft</h4>
+                <h4 className="text-muted-foreground text-sm font-medium">Explore Our Courses</h4>
                 <h3 className="text-lg font-semibold mt-1 mb-2">
                   {program.title}
                 </h3>
-                <p className="text-sm text-blue-600 dark:text-blue-400">
+                <p className="text-sm text-black dark:text-black">
                   {program.subtitle}
                 </p>
                 <div className="flex items-center justify-between text-sm text-muted-foreground mt-4">
-                  <span className="flex items-center gap-1"><BadgeCheck className="w-4 h-4" /> Certification</span>
-                  <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {program.duration}</span>
+                  <span className="flex items-center gap-1">
+                    <BadgeCheck className="w-4 h-4" /> Certification
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" /> {program.duration}
+                  </span>
                 </div>
               </div>
 
-              <div className="mt-4 flex justify-between items-center gap-2">
+              <div className="mt-4 flex justify-center">
                 <Link href={`/related_course/${program.slug}`} className="w-full">
                   <Button variant="outline" className="w-full">
                     View Program
                   </Button>
                 </Link>
-                <a href={program.syllabus} download className="w-full">
-                  <Button className="w-full bg-blue-900 text-white hover:bg-blue-900">
-                    <FileText className="w-4 h-4 mr-1" /> Syllabus
-                  </Button>
-                </a>
               </div>
             </motion.div>
           ))}
