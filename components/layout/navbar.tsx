@@ -1,5 +1,8 @@
 "use client";
+
 import Image from "next/image";
+import React from "react";
+import Link from "next/link";
 import {
   ChevronsDown,
   Github,
@@ -14,8 +17,10 @@ import {
   Camera,
   Cloud,
   ShieldCheck,
+  GraduationCap,
 } from "lucide-react";
-import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
+
 import {
   Sheet,
   SheetContent,
@@ -24,7 +29,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { Separator } from "../ui/separator";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -33,15 +45,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
+
+import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
-import Link from "next/link";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { FaWhatsapp } from "react-icons/fa";
 
 interface RouteProps {
   href: string;
@@ -56,29 +62,28 @@ interface ServiceProps {
 }
 
 const routeList: RouteProps[] = [
-  { href: "/programs", label: "Programs" },
   { href: "/team", label: "Team" },
- 
   { href: "/about-us", label: "About us" },
   { href: "/carrers", label: "Carrers" },
-  
 ];
 
 const serviceList: ServiceProps[] = [
-  {
-    title: "WEB DEVELOPMENT",
-    href: "/web",
-    icon: Code,
-    // subServices: [
-    //   { title: "Java Full Stack", href: "/web/java", icon: Code },
-    //   { title: "Python Full Stack", href: "/web/python", icon: Code },
-    //   { title: "MERN Stack", href: "/web/mern", icon: Code },
-    // ],
-  },
+  { title: "WEB DEVELOPMENT", href: "/web", icon: Code },
   { title: "APP DEVELOPMENT", href: "/app-dev", icon: Smartphone },
   { title: "CLOUD COMPUTING", href: "/cloud-comp", icon: Cloud },
   { title: "CYBER SECURITY", href: "/cyber-security", icon: ShieldCheck },
- 
+];
+
+const programList: ServiceProps[] = [
+  { title: "All programs", href: "/programs", icon: GraduationCap },
+  { title: "Fast Track 45", href: "/programs/fast-track", icon: GraduationCap },
+  { title: "Skill Boost 2", href: "/programs/skill-boost", icon: GraduationCap },
+  { title: "Pro Edge 3", href: "/programs/pro-edge", icon: GraduationCap },
+  { title: "Dual Path 5", href: "/programs/dual-pack", icon: GraduationCap },
+  { title: "Career Pro 6", href: "/programs/career-pro", icon: GraduationCap },
+  { title: "Campus+ LearnTrack", href: "/programs/campus-plus", icon: GraduationCap },
+  { title: "Campus+ ProjectPro", href: "/programs/campus-project-pro", icon: GraduationCap },
+  { title: "Campus+ CodeStart", href: "/programs/campus-code-start", icon: GraduationCap },
 ];
 
 export const Navbar = () => {
@@ -88,27 +93,15 @@ export const Navbar = () => {
   return (
     <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
       {/* Logo */}
-      <Link href="/" className="font-bold text-lg flex items-center">
-  <div className="flex items-center space-x-2">
-    <Image
-      src="/logo1.png" 
-      alt="Talent Trek Logo"
-      width={50} 
-      height={50}
-      className="rounded-sm object-contain"
-    />
-   <span className="text-lg  pb-1 font-bold tracking-wide text-black">
-  Talent{" "}
-  <span className="font-bold text-white outlined-text ">Trek</span>
-</span>
+      <Link href="/" className=" pl-4 font-bold text-lg flex items-center">
+        <div className="flex items-center space-x-2">
+          <span className="text-lg pb-1 font-bold tracking-wide text-black">
+            Talent Trek 
+          </span>
+        </div>
+      </Link>
 
-
-   
-  </div>
-</Link>
-
-
-      {/* ✅ Mobile Navbar (Hamburger Menu) */}
+      {/* ✅ Mobile Navbar */}
       <div className="flex items-center lg:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
@@ -123,16 +116,15 @@ export const Navbar = () => {
               <SheetHeader className="mb-4 ml-4">
                 <SheetTitle className="flex items-center">
                   <Link href="/" className="flex items-center">
-                 
                     Talent Trek
                   </Link>
                 </SheetTitle>
               </SheetHeader>
 
-              {/* ✅ Mobile Accordion Menu for Services */}
+              {/* Mobile Accordion Menu */}
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="services">
-                  <AccordionTrigger className="px-4 py-2 no-underline hover:no-underline text-lg hover:text-muted-foreground font-normal">
+                  <AccordionTrigger className="px-4 py-2 text-lg hover:text-muted-foreground font-normal">
                     Courses
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col gap-2">
@@ -151,10 +143,30 @@ export const Navbar = () => {
                     ))}
                   </AccordionContent>
                 </AccordionItem>
+
+                <AccordionItem value="programs">
+                  <AccordionTrigger className="px-4 py-2 text-lg hover:text-muted-foreground font-normal">
+                    Programs
+                  </AccordionTrigger>
+                  <AccordionContent className="flex flex-col gap-2">
+                    {programList.map(({ title, href, icon: Icon }) => (
+                      <Button
+                        key={title}
+                        onClick={() => setIsOpen(false)}
+                        asChild
+                        variant="ghost"
+                        className="justify-start text-base"
+                      >
+                        <Link href={href} className="flex items-center gap-2">
+                          <Icon className="w-4 h-4" /> {title}
+                        </Link>
+                      </Button>
+                    ))}
+                  </AccordionContent>
+                </AccordionItem>
               </Accordion>
 
-              {/* ✅ Other Pages on Mobile */}
-              <div className="flex flex-col font-bold gap-2">
+              <div className="flex flex-col font-bold gap-2 mt-4">
                 {routeList.map(({ href, label }) => (
                   <Button
                     key={href}
@@ -168,6 +180,7 @@ export const Navbar = () => {
                 ))}
               </div>
             </div>
+
             <SheetFooter className="flex-col sm:flex-col justify-start items-start">
               <Separator className="mb-2" />
             </SheetFooter>
@@ -175,53 +188,45 @@ export const Navbar = () => {
         </Sheet>
       </div>
 
-      {/* ✅ Desktop Navbar with Nested Submenu for WEB DEVELOPMENT */}
+      {/* ✅ Desktop Navigation */}
       <NavigationMenu className="hidden lg:block mx-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-card font-semibold text-base">
-              Courses
-            </NavigationMenuTrigger>
+            <NavigationMenuTrigger className="bg-card font-semibold text-base">Courses</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="grid w-[250px] grid-cols-1 gap-2 p-4">
                 <ul className="flex flex-col gap-2">
-                  {serviceList.map(({ title, href, icon: Icon, subServices }) => (
-                    <div
-                      key={title}
-                      className="relative"
-                      onMouseEnter={() => setHoveredService(title)}
-                      onMouseLeave={() => setHoveredService(null)}
-                    >
-                      <li className="p-2 rounded-md text-sm hover:bg-muted">
-                        <Link
-                          href={href}
-                          className="flex items-center gap-2 font-medium text-foreground"
-                        >
-                          <Icon className="w-5 h-5" />
-                          {title}
-                        </Link>
-                      </li>
-                      {subServices && hoveredService === title && (
-                        <ul className="absolute left-full top-0 ml-2 flex flex-col bg-card shadow-lg rounded-md border p-2 w-[220px] z-50">
-                          {subServices.map(({ title, href, icon: SubIcon }) => (
-                            <li
-                              key={title}
-                              className="hover:bg-muted p-2 rounded-md flex items-center gap-2 text-sm"
-                            >
-                              <SubIcon className="w-4 h-4" />
-                              <Link href={href}>{title}</Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
+                  {serviceList.map(({ title, href, icon: Icon }) => (
+                    <li key={title} className="p-2 rounded-md text-sm hover:bg-muted">
+                      <Link href={href} className="flex items-center gap-2 font-medium text-foreground">
+                        <Icon className="w-5 h-5" />
+                        {title}
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          {/* ✅ Desktop Route Links */}
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="bg-card font-semibold text-base">Programs</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="grid w-[250px] grid-cols-1 gap-2 p-4">
+                <ul className="flex flex-col gap-2">
+                  {programList.map(({ title, href, icon: Icon }) => (
+                    <li key={title} className="p-2 rounded-md text-sm hover:bg-muted">
+                      <Link href={href} className="flex items-center gap-2 font-medium text-foreground">
+                        <Icon className="w-5 h-5" />
+                        {title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
           <NavigationMenuItem>
             {routeList.map(({ href, label }) => (
               <NavigationMenuLink key={href} asChild>
@@ -234,7 +239,7 @@ export const Navbar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      {/* ✅ Call-to-Action Buttons */}
+      {/* ✅ CTAs */}
       <div className="hidden lg:flex">
         <Button asChild className="mr-4 font-bold group/arrow">
           <Link
@@ -245,7 +250,7 @@ export const Navbar = () => {
             <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
           </Link>
         </Button>
-        <Button asChild size="sm" variant="ghost" aria-label="View on GitHub">
+        <Button asChild size="sm" variant="ghost">
           <Link
             href="https://wa.me/919848814614?text=Hi%2C%20I'm%20interested%20in%20booking%20a%20demo%20with%20your%20team."
             target="_blank"

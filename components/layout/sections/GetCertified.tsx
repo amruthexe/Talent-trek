@@ -1,7 +1,7 @@
 'use client'
 
 import { BadgeCheck, ArrowRight } from 'lucide-react'
-import Image from 'next/image' // Place your image in public/ or use an external URL
+import Image from 'next/image'
 
 export default function GetCertified() {
   return (
@@ -10,11 +10,11 @@ export default function GetCertified() {
         {/* Left Side */}
         <div className="space-y-6">
           <h2 className="text-4xl font-bold">
-            Get <span className="text-blue-600">Certified</span>.
+            Get <span className="text-black">Certified</span>.
           </h2>
 
           <div className="flex items-start gap-3">
-            <BadgeCheck className="text-blue-600 mt-1" />
+            <BadgeCheck className="text-black mt-1" />
             <div>
               <p className="font-semibold">Start today</p>
               <p className="text-sm text-muted-foreground">
@@ -22,36 +22,56 @@ export default function GetCertified() {
               </p>
             </div>
           </div>
-
           <div className="flex items-start gap-3">
-            <BadgeCheck className="text-blue-600 mt-1" />
+          <BadgeCheck className="text-black mt-1" />
             <div>
               <p className="font-semibold">Believe in yourself</p>
               <p className="text-sm text-muted-foreground">
-                Coding is simple. You just need the right guidance. Consistency & hard work will help
-                you be Internship/Placement ready for Tech companies.
+             Coding is simple. You just need the right guidance.
               </p>
             </div>
           </div>
 
-          <button className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-md flex items-center gap-2 hover:bg-orange-600 transition w-fit mt-4">
+         
+      
+
+          <button className="bg-black text-white font-semibold px-6 py-3 rounded-md flex items-center gap-2 hover:bg-black transition w-fit mt-4">
             Enroll Now <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Right Side */}
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-sm font-semibold mb-2 uppercase">Start your placement journey today.</p>
-          <div className="max-w-md w-full rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/ce.jpeg"
-              width={180}
-              height={100}
-              alt="Certificate of Completion"
-              className="w-full h-auto object-contain"
-            />
-          </div>
-        </div>
+        {/* Right Side - 2x2 Image Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center items-center">
+  <Image
+    src="/c1.jpg"
+    width={160}
+    height={160}
+    alt="Certificate 1"
+    className="rounded-md object-cover w-full h-auto border-2 border-black shadow-md"
+  />
+  <Image
+    src="/c2.jpg"
+    width={160}
+    height={160}
+    alt="Certificate 2"
+    className="rounded-md object-cover w-full h-auto border-2 border-black shadow-md"
+  />
+  <Image
+    src="/c3.jpg"
+    width={160}
+    height={160}
+    alt="Certificate 3"
+    className="rounded-md object-cover w-full h-auto border-2 border-black shadow-md"
+  />
+  <Image
+    src="/c4.jpg"
+    width={160}
+    height={160}
+    alt="Certificate 4"
+    className="rounded-md object-cover w-full h-auto border-2 border-black shadow-md"
+  />
+</div>
+
       </div>
     </section>
   )

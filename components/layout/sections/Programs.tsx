@@ -67,7 +67,7 @@ export const Programs = () => {
   };
 
   return (
-    <section className="py-16 bg-background dark:bg-black">
+    <section className="py-8 bg-background dark:bg-black">
       <div className="container relative">
         <h2 className="text-3xl md:text-4xl font-bold text-center">
           Master Generative AI with <span className="text-black">Microsoft</span>
@@ -98,7 +98,7 @@ export const Programs = () => {
                     <h3 className="text-lg font-semibold mt-1 mb-2">
                       {program.title}
                     </h3>
-                    <p className="text-sm text-blue-600 dark:text-blue-400">
+                    <p className="text-sm text-black dark:text-blue-400">
                       {program.subtitle}
                     </p>
                     <div className="flex items-center justify-between text-sm text-muted-foreground mt-4">
@@ -114,7 +114,7 @@ export const Programs = () => {
                       </Button>
                     </Link>
                     <a href={program.syllabus} download className="w-full">
-                      <Button className="w-full bg-blue-800 text-white hover:bg-blue-900 dark:bg-blue-900">
+                      <Button className="w-full bg-black text-white hover:bg-blue-900 dark:bg-blue-900">
                         <FileText className="w-4 h-4 mr-1" /> Syllabus
                       </Button>
                     </a>
