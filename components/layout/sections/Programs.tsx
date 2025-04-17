@@ -184,7 +184,7 @@ export const Programs = () => {
               </div>
 
               <div className="mt-4 flex justify-center">
-                <Link href={`/related_course/${program.slug}`} className="w-full">
+                <Link href={`/${program.slug}`} className="w-full">
                   <Button variant="outline" className="w-full">
                     View Program
                   </Button>
