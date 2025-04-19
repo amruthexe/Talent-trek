@@ -66,6 +66,7 @@ const routeList: RouteProps[] = [
   
   { href: "/carrers", label: "Carrers" },
   { href: "/about-us", label: "About us" },
+  { href: "/support", label: "Support" },
 ];
 
 const serviceList: ServiceProps[] = [
