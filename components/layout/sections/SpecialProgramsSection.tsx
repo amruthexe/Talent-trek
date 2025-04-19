@@ -32,10 +32,9 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
     plans: [
       {
         title: "Fast Track 45 (Recorded)",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 2499,
-        description:
-          "Tech Course + 1 project + Internship with certificates from AWS & soft skills training.",
+        description: "Tech Course + 1 project + Internship with certificates from AWS & soft skills training.",
         buttonText: "Get Started",
         benefitList: [
           "45 days Internship",
@@ -47,10 +46,9 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
       },
       {
         title: "Skill Boost 2 (Live + Recorded)",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 3999,
-        description:
-          "Live/Recorded sessions + Projects + Internship + Mentorship + LOR & AICTE Certificate.",
+        description: "Live/Recorded sessions + Projects + Internship + Mentorship + LOR & AICTE Certificate.",
         buttonText: "Enroll Now",
         benefitList: [
           "2 Months Duration",
@@ -64,8 +62,7 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
         title: "Pro Edge 3 (Live + Recorded)",
         popular: PopularPlan.YES,
         price: 4999,
-        description:
-          "Complete training + internship + soft skills training with certification and LMS access.",
+        description: "Complete training + internship + soft skills training with certification and LMS access.",
         buttonText: "Join Program",
         benefitList: [
           "3 Month Access",
@@ -77,10 +74,9 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
       },
       {
         title: "Dual Path 5 (Live + Recorded)",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 5999,
-        description:
-          "Two-course dual program with full-stack internship, 10 projects, and career support.",
+        description: "Two-course dual program with full-stack internship, 10 projects, and career support.",
         buttonText: "Explore Now",
         benefitList: [
           "5 Month Dual Course",
@@ -92,10 +88,9 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
       },
       {
         title: "Career Pro 6 (Live + Recorded)",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 30000,
-        description:
-          "Complete career transformation package including domain expertise and placement support.",
+        description: "Complete career transformation package including domain expertise and placement support.",
         buttonText: "Talk to Mentor",
         benefitList: [
           "6 Months Course Access",
@@ -104,12 +99,12 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
           "Placement Assistance",
           "All Certificates + LMS",
         ],
-      }, {
+      },
+      {
         title: "AI & Data Career Track",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 9999,
-        description:
-          "Specialized path for AI, Data Science, and ML aspirants with project-based learning and expert mentorship.",
+        description: "Specialized path for AI, Data Science, and ML aspirants with project-based learning and expert mentorship.",
         buttonText: "Apply Now",
         benefitList: [
           "Expert-led Live Classes",
@@ -126,10 +121,9 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
     plans: [
       {
         title: "Campus+ LearnTrack",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 5999,
-        description:
-          "Academic subject support for degree students with backlogs, assignments, and more.",
+        description: "Academic subject support for degree students with backlogs, assignments, and more.",
         buttonText: "Start Learning",
         benefitList: [
           "Academic + Supplementary Support",
@@ -141,10 +135,9 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
       },
       {
         title: "Campus+ ProjectPro",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 15000,
-        description:
-          "Final year project creation from scratch with report, presentation, and mentorship.",
+        description: "Final year project creation from scratch with report, presentation, and mentorship.",
         buttonText: "Book Project",
         benefitList: [
           "IEEE/NAAC Standard Projects",
@@ -156,10 +149,9 @@ const programCategories: { category: string; plans: PlanProps[] }[] = [
       },
       {
         title: "Campus+ CodeStart",
-        popular: PopularPlan.NO,
+        popular: PopularPlan.YES,
         price: 1999,
-        description:
-          "Coding foundation for students from Class 6–12 with HTML, Python, JS & Scratch.",
+        description: "Coding foundation for students from Class 6–12 with HTML, Python, JS & Scratch.",
         buttonText: "Enroll Student",
         benefitList: [
           "Live Weekend Batches (3 Months)",
@@ -201,8 +193,8 @@ export const SpecialProgramsPricingSection = () => {
                   key={title}
                   className={`transition duration-300 hover:shadow-xl rounded-xl border ${
                     popular === PopularPlan.YES
-                      ? "drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.05]"
-                      : ""
+                      ? "border-black shadow-md scale-[1.05] m-4"
+                      : "border-black shadow-md scale-[1.05] m-4"
                   }`}
                 >
                   <CardHeader>
@@ -232,21 +224,22 @@ export const SpecialProgramsPricingSection = () => {
                   </CardContent>
 
                   <CardFooter>
-                    <Button
-                      variant={
-                        popular === PopularPlan.YES ? "default" : "secondary"
-                      }
+                    <Link
+                      href="https://wa.me/+917892793203?text=I%20am%20interested%20in%20your%20special%20programs."
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full"
                     >
-                      <Link
-                        href="https://wa.me/+917892793203?text=I%20am%20interested%20in%20your%20special%20programs."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full h-full"
+                      <Button
+                        className={`w-full ${
+                          popular === PopularPlan.YES
+                            ? "bg-black text-white hover:bg-gray-800"
+                            : "bg-black text-white hover:bg-gray-600"
+                        }`}
                       >
                         {buttonText}
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                   </CardFooter>
                 </Card>
               )

@@ -12,7 +12,7 @@ import React from 'react'
 const page = () => {
   return (
     <div>
-        <WhyJoinUs/>
+        {/* <WhyJoinUs/> */}
         <SpecialProgramsPricingSection/>
         <Collaborations/>
     <ContactSection/>

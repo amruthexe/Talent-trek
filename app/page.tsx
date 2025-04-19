@@ -1,4 +1,5 @@
 import Wrapper from "@/components/global/wrapper";
+import { Analytics } from "@vercel/analytics/react"
 import FeaturesSectionDemo from "@/components/layout/sections/Afeatures";
 import { BenefitsSection } from "@/components/layout/sections/benefits";
 import Companies from "@/components/layout/sections/Companies";
@@ -58,7 +59,7 @@ export default function Home() {
                 </Container>
                 <Programs/>
                 <VerticalsSection/>
-                <ExplorePrograms/>
+                {/* <ExplorePrograms/> */}
                 <FeaturesSectionDemo/>
                 <CommunityStats/>
               
@@ -67,7 +68,7 @@ export default function Home() {
   
      
   
-      <NewPricing/>
+      {/* <NewPricing/> */}
       <Collaborations/>
 
      <Reviews/>
@@ -83,6 +84,7 @@ export default function Home() {
      <CTA/>
      </Wrapper>
       <Footer/>
+      <Analytics/>
      
     </>
   );
